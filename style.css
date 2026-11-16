@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --fundo: #0b1020;
+    --painel: #151d33;
+    --painel-claro: #1c2944;
+    --texto: #f4f7ff;
+    --suave: #aab6cf;
+    --azul: #67d5ff;
+    --roxo: #9b8cff;
+    --verde: #5de0a0;
+    --vermelho: #ff7e91;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 32px 18px;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at 12% 10%, #20376b 0, transparent 30%),
+        radial-gradient(circle at 90% 85%, #35265e 0, transparent 28%),
+        var(--fundo);
+    font-family: Inter, Arial, sans-serif;
+}
+
+button { font: inherit; }
+
+.container { width: min(1100px, 100%); margin: 0 auto; }
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 28px;
+}
+
+.etiqueta, .nivel-tag {
+    color: var(--azul);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 { margin: 8px 0; font-size: clamp(2rem, 5vw, 3.2rem); }
+h1 span { color: var(--azul); }
+.subtitulo, .texto-apoio { color: var(--suave); }
+.icone-topo {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border: 1px solid #49618d;
+    border-radius: 22px;
+    color: var(--azul);
+    background: #182744;
+    font-size: 1.7rem;
+    font-weight: 800;
+    transform: rotate(5deg);
+}
+
+.painel {
+    padding: clamp(22px, 4vw, 38px);
+    border: 1px solid #2b3b5c;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(28, 41, 68, .98), rgba(18, 27, 48, .98));
+    box-shadow: 0 18px 55px #0005;
+}
+
+.tela { animation: aparecer .35s ease; }
+.escondido { display: none !important; }
+
+h2 { margin: 10px 0 14px; font-size: clamp(1.45rem, 3vw, 2rem); }
+p { line-height: 1.65; }
+
+.instrucoes { padding-left: 22px; color: var(--suave); line-height: 2; }
+.resumo-niveis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+.resumo-niveis div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 17px;
+    border: 1px solid #34496e;
+    border-radius: 14px;
+    background: #111b30;
+}
+.resumo-niveis strong { color: var(--azul); font-size: 1.4rem; }
+.resumo-niveis span { color: var(--suave); font-size: .9rem; }
+
+.botao {
+    border: 0;
+    border-radius: 12px;
+    padding: 14px 22px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: transform .2s, filter .2s;
+}
+.botao:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.botao:focus-visible, .alternativa:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+.botao-principal { color: #071321; background: linear-gradient(100deg, var(--azul), #8ca7ff); }
+
+.status { padding: 20px 25px; margin-bottom: 18px; }
+.status-linha { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; }
+.status-secundario { margin-top: 13px; color: var(--suave); font-size: .88rem; }
+.status-secundario strong { color: var(--texto); }
+.barra-progresso { height: 9px; margin-top: 14px; overflow: hidden; border-radius: 20px; background: #0b1428; }
+.barra-preenchida { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--azul), var(--roxo)); transition: width .3s; }
+
+.layout-jogo { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 18px; align-items: start; }
+.questao { min-height: 430px; }
+.questao h2 { line-height: 1.4; margin-bottom: 25px; }
+.alternativas { display: grid; gap: 12px; }
+.alternativa {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid #3a4b6c;
+    border-radius: 12px;
+    color: var(--texto);
+    background: #111b30;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s, border .2s;
+}
+.alternativa:hover:not(:disabled) { border-color: var(--azul); background: #1c3150; }
+.alternativa:disabled { cursor: default; opacity: 1; }
+.alternativa.correta { border-color: var(--verde); background: #153b35; }
+.alternativa.errada { border-color: var(--vermelho); background: #462532; }
+.feedback { margin: 20px 0; padding: 15px; border-radius: 12px; line-height: 1.6; background: #10192b; }
+.feedback.acertou { border-left: 4px solid var(--verde); }
+.feedback.errou { border-left: 4px solid var(--vermelho); }
+.feedback strong { display: block; margin-bottom: 5px; }
+#btn-proxima { margin-top: 5px; }
+
+.conquistas h3 { margin-top: 0; }
+.texto-apoio { font-size: .85rem; }
+.lista-conquistas { display: grid; gap: 12px; margin-top: 20px; }
+.conquista {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #354969;
+    border-radius: 12px;
+    background: #111b30;
+}
+.conquista > span { font-size: 1.5rem; }
+.conquista strong, .conquista small { display: block; }
+.conquista strong { font-size: .83rem; }
+.conquista small { margin-top: 4px; color: var(--suave); font-size: .72rem; }
+.conquista.bloqueada { opacity: .42; filter: grayscale(1); }
+.conquista.liberada { border-color: #7a70d9; background: #29284c; }
+
+.tela#tela-resultado { text-align: center; }
+.trofeu-final { margin: 15px 0; font-size: 4rem; }
+.placar-final {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: min(280px, 100%);
+    margin: 25px auto;
+    padding: 22px;
+    border: 1px solid #4b6090;
+    border-radius: 18px;
+    background: #101a30;
+}
+.placar-final span, .placar-final small { color: var(--suave); }
+.placar-final strong { color: var(--azul); font-size: 3rem; }
+.conquistas-finais { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0 28px; }
+.conquistas-finais span { padding: 10px 14px; border: 1px solid #5b579a; border-radius: 30px; background: #29284c; }
+
+footer { padding: 28px 0 5px; color: #7887a5; text-align: center; font-size: .7rem; letter-spacing: 2px; }
+footer span { color: var(--azul); }
+
+@keyframes aparecer { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 760px) {
+    body { padding: 18px 12px; }
+    .icone-topo { width: 58px; height: 58px; border-radius: 16px; }
+    .layout-jogo { grid-template-columns: 1fr; }
+    .questao { min-height: 0; }
+    .conquistas { order: 2; }
+}
+@media (max-width: 440px) {
+    .topo { align-items: flex-start; }
+    .icone-topo { font-size: 1.2rem; }
+    .resumo-niveis { gap: 7px; }
+    .resumo-niveis div { padding: 12px 9px; }
+    .status-linha { font-size: .85rem; }
+    .status-secundario { font-size: .78rem; }
+}
+
+
+/* Login local, ranking e reforço de aprendizagem */
+.form-login { display: grid; gap: 10px; max-width: 440px; margin: 22px 0; }
+.form-login label { font-weight: 700; }
+.form-login input { width: 100%; padding: 14px 15px; border: 1px solid #49618d; border-radius: 11px; color: var(--texto); background: #101a30; font: inherit; }
+.form-login input:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+.aviso-local { color: var(--suave); font-size: .82rem; }
+.ranking-box { margin: 22px 0; padding: 17px; border: 1px solid #354969; border-radius: 14px; background: #101a30; }
+.ranking-box h3 { margin: 0 0 12px; }
+.ranking-lista { margin: 0; padding-left: 24px; color: var(--suave); line-height: 1.9; }
+.ranking-lista strong { color: var(--texto); }
+.jogador-linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; color: var(--suave); }
+.jogador-linha strong { color: var(--azul); }
+.botao-secundario { padding: 8px 12px; border: 1px solid #49618d; border-radius: 9px; color: var(--texto); background: #111b30; cursor: pointer; }
+.reforco { margin: 16px 0; padding: 17px; border: 1px solid #7a70d9; border-radius: 13px; background: #242544; line-height: 1.6; }
+.reforco h3 { margin: 0 0 8px; color: #c5bdff; }
+.reforco p { margin: 8px 0; }
+.reforco .pratica-pergunta { margin-top: 14px; font-weight: 700; }
+.reforco button { margin: 6px 6px 0 0; padding: 9px 12px; border: 1px solid #6473a5; border-radius: 8px; color: var(--texto); background: #111b30; cursor: pointer; }
+.reforco .resultado-pratica { font-weight: 700; }
+.mensagem-recorde { color: var(--verde); font-weight: 700; }
+@media (max-width: 440px) { .jogador-linha { align-items: flex-start; flex-direction: column; } }

@@ -1,0 +1,27 @@
+REGISTRO DE USO DO CHATGPT
+Projeto: Missão JavaScript
+Disciplina: Desenvolvimento de Sistemas
+Tema: Fundamentos de JavaScript — operadores, variáveis, condições e repetições
+Público-alvo: estudantes iniciantes de programação
+Objetivo de aprendizagem: reconhecer conceitos básicos de JavaScript, prever a saída de estruturas condicionais e analisar problemas em estruturas de repetição.
+
+PROMPT 1 — PLANEJAMENTO DAS QUESTÕES (prompt para começar)
+Estou criando um jogo educacional sobre fundamentos de JavaScript para estudantes iniciantes de programação, com HTML, CSS e JavaScript em arquivos separados. Meu objetivo de aprendizagem é reconhecer operadores e variáveis, prever a saída de estruturas if/else e analisar condições e possíveis erros em laços de repetição. Sugira quatro questões de múltipla escolha para cada nível (básico, intermediário e avançado), com quatro alternativas, apenas uma resposta correta e uma explicação breve. No nível básico, trabalhe reconhecimento de conceitos; no intermediário, aplicação e previsão de saída de if/else; no avançado, análise de repetições e identificação de erros. Mantenha linguagem clara e adequada a iniciantes.
+
+O QUE FOI APROVEITADO DA RESPOSTA:
+Foi aproveitada a organização das perguntas em três níveis de dificuldade. As questões foram adaptadas para abordar operadores de comparação, declaração de variáveis, valores booleanos, console.log, estruturas if/else, operador de módulo e laços while/for. As explicações aparecem depois de cada resposta para reforçar o conteúdo.
+
+PROMPT 2 — IMPLEMENTAÇÃO E REVISÃO
+Com base no planejamento, desenvolva um jogo de perguntas e respostas chamado “Missão JavaScript”, usando somente HTML, CSS e JavaScript puro em três arquivos separados: index.html, style.css e script.js. O jogo deve ter 12 questões, quatro por nível, quatro alternativas por questão, uma resposta correta e uma explicação. Cada acerto vale 10 pontos e cada erro vale zero. Registre apenas uma resposta por questão, bloqueie as alternativas depois da escolha e mostre a resposta correta e a explicação. Exija pelo menos três acertos em quatro questões para concluir cada nível. Se o jogador não atingir três acertos, descarte os pontos daquela tentativa e permita tentar novamente. Ao concluir um nível, some os pontos da tentativa aprovada, conceda uma conquista e libere o próximo nível. Mostre as conquistas durante o jogo e, ao terminar o nível avançado, apresente a pontuação final de até 120 pontos. O botão “Jogar novamente” deve zerar tudo e voltar à tela inicial, deixando apenas o nível básico disponível. Faça uma interface responsiva, com foco visível para teclado e indicação de acerto/erro por texto e cor. Use código simples, organizado e comentado quando necessário.
+
+O QUE FOI APROVEITADO DA RESPOSTA:
+Foram aproveitadas a separação dos arquivos, a estrutura de telas, o controle das respostas, a pontuação, o avanço por níveis, as conquistas e o reinício da partida. Também foram usadas as regras de acessibilidade visual e adaptação para celular.
+
+PROMPT 3 - COLOCANDO RANKING E APOIO AO USUÁRIO APÓS O ERRO
+
+Complemente para mim, localmente, coisas como um login para salvar em um ranking dentro do jogo, além de questões e dicas para melhora de determinados conteudos após errar uma questão.
+
+MUDANÇA FEITA APÓS TESTE OU REVISÃO:
+Na revisão da lógica, foi conferido que o jogador não consegue pontuar mais de uma vez na mesma questão: depois da primeira escolha, todas as alternativas ficam desativadas. Também foi conferido que uma tentativa com menos de três acertos não acrescenta pontos ao placar e não libera o próximo nível. Os pontos só entram no placar quando o nível é concluído com pelo menos três acertos. O reinício limpa a pontuação e as conquistas.
+
+O desenvolvimento do prompt final aconteceu de forma gradual. Primeiro, foram definidos os objetivos de aprendizagem e os conteúdos que seriam abordados no jogo. Em seguida, as questões foram organizadas em três níveis de dificuldade, permitindo uma evolução gradual do conhecimento. Depois, foram estabelecidas as regras de pontuação, tentativas, conquistas e desbloqueio dos níveis. Por fim, foram acrescentados requisitos técnicos e de acessibilidade, além de critérios para testar o funcionamento da lógica. Dessa maneira, foi possível transformar uma ideia inicial em um prompt detalhado, capaz de orientar a criação de um jogo educativo interativo, organizado e adequado para estudantes iniciantes em JavaScript.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="topo">
+            <div>
+                <p class="etiqueta">JOGO EDUCACIONAL</p>
+                <h1>Missão <span>JavaScript</span></h1>
+                <p class="subtitulo">Aprenda, responda e desbloqueie novos desafios.</p>
+            </div>
+            <div class="icone-topo" aria-hidden="true">&lt;/&gt;</div>
+        </header>
+
+        <section id="tela-login" class="painel tela">
+            <p class="nivel-tag">IDENTIFICAÇÃO DO JOGADOR</p>
+            <h2>Entre na missão</h2>
+            <p>Escolha um nome de jogador para registrar seu progresso e aparecer no ranking deste navegador.</p>
+            <form id="form-login" class="form-login">
+                <label for="nome-jogador">Nome de jogador</label>
+                <input id="nome-jogador" maxlength="18" autocomplete="nickname" placeholder="Ex.: DevMaster" required>
+                <button class="botao botao-principal" type="submit">Entrar / Criar perfil</button>
+            </form>
+            <p class="aviso-local">Os perfis e o ranking ficam salvos somente neste navegador e dispositivo. Não é uma conta online nem protegida por senha.</p>
+            <div class="ranking-box">
+                <h3>🏆 Ranking local</h3>
+                <ol id="ranking-login" class="ranking-lista"><li>Ainda não há pontuações registradas.</li></ol>
+            </div>
+        </section>
+
+        <section id="tela-inicial" class="painel tela">
+            <div class="jogador-linha"><span>Jogador: <strong id="jogador-atual"></strong></span><button id="btn-trocar-jogador" class="botao-secundario" type="button">Trocar jogador</button></div>
+            <p class="nivel-tag">SUA JORNADA COMEÇA AQUI</p>
+            <h2>Prepare-se para a missão!</h2>
+            <p>Responda a 12 perguntas sobre JavaScript, divididas em três níveis de dificuldade.</p>
+            <ul class="instrucoes">
+                <li>Cada nível possui 4 questões.</li>
+                <li>Cada acerto vale 10 pontos.</li>
+                <li>Você precisa acertar pelo menos 3 questões para avançar.</li>
+                <li>Depois de responder, confira a explicação antes de continuar.</li>
+            </ul>
+            <div class="ranking-box ranking-home">
+                <h3>🏆 Melhores pontuações</h3>
+                <ol id="ranking-home" class="ranking-lista"><li>Ainda não há pontuações registradas.</li></ol>
+            </div>
+            <div class="resumo-niveis">
+                <div><strong>01</strong><span>Básico</span></div>
+                <div><strong>02</strong><span>Intermediário</span></div>
+                <div><strong>03</strong><span>Avançado</span></div>
+            </div>
+            <button id="btn-iniciar" class="botao botao-principal">Iniciar missão</button>
+        </section>
+
+        <section id="tela-jogo" class="tela escondido">
+            <div class="painel status">
+                <div class="status-linha">
+                    <span id="nome-nivel">Nível básico</span>
+                    <span id="progresso">Questão 1 de 4</span>
+                </div>
+                <div class="barra-progresso"><div id="barra" class="barra-preenchida"></div></div>
+                <div class="status-linha status-secundario">
+                    <span>Pontos: <strong id="pontuacao">0</strong></span>
+                    <span>Acertos no nível: <strong id="acertos">0</strong>/4</span>
+                </div>
+            </div>
+
+            <div class="layout-jogo">
+                <section class="painel questao">
+                    <p id="categoria" class="nivel-tag">CONCEITOS</p>
+                    <h2 id="pergunta">Pergunta aparecerá aqui</h2>
+                    <div id="alternativas" class="alternativas"></div>
+                    <div id="feedback" class="feedback escondido" aria-live="polite"></div>
+                    <section id="reforco" class="reforco escondido" aria-live="polite"></section>
+                    <button id="btn-proxima" class="botao botao-principal escondido">Próxima questão</button>
+                </section>
+
+                <aside class="painel conquistas">
+                    <h3>Conquistas</h3>
+                    <p class="texto-apoio">Seus prêmios ficam aqui durante toda a missão.</p>
+                    <div id="lista-conquistas" class="lista-conquistas">
+                        <div class="conquista bloqueada"><span>✦</span><div><strong>Primeiros Passos</strong><small>Conclua o nível básico</small></div></div>
+                        <div class="conquista bloqueada"><span>✧</span><div><strong>Explorador</strong><small>Conclua o nível intermediário</small></div></div>
+                        <div class="conquista bloqueada"><span>🏆</span><div><strong>Missão Cumprida</strong><small>Conclua o nível avançado</small></div></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="tela-resultado" class="painel tela escondido">
+            <p class="nivel-tag">FIM DA JORNADA</p>
+            <div class="trofeu-final">🏆</div>
+            <h2>Missão cumprida!</h2>
+            <p>Você concluiu todos os níveis de JavaScript.</p>
+            <div class="placar-final">
+                <span>Pontuação final</span>
+                <strong id="pontuacao-final">120</strong>
+                <small>de 120 pontos</small>
+            </div>
+            <p id="mensagem-recorde" class="mensagem-recorde"></p>
+            <div id="conquistas-finais" class="conquistas-finais"></div>
+            <div class="ranking-box"><h3>🏆 Ranking atualizado</h3><ol id="ranking-final" class="ranking-lista"></ol></div>
+            <button id="btn-reiniciar" class="botao botao-principal">Jogar novamente</button>
+        </section>
+
+        <footer>MISSÃO JAVASCRIPT <span>•</span> HTML + CSS + JAVASCRIPT</footer>
+    </main>
+</body>
+</html>
